@@ -30,7 +30,7 @@
                 @endif
             </div>
             <div class="col-lg-7">
-                <a href="{{ url('product') }}">kembali</a>
+                <a href="{{ url(back()->getTargetUrl()) }}">kembali</a>
                 <div class="row align-items-start">
                     <div class="col-md-3">
                         Nama

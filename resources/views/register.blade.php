@@ -22,7 +22,7 @@
                     <!-- name -->
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
-                            placeholder="" value="{{ old('name') }}">
+                            placeholder="" value="{{ old('name') }}" required>
                         <label for="name" class="form-label">Name</label>
                         @error('name')
                             <div class="invalid-feedback">{{ $message  }}</div>
@@ -31,7 +31,7 @@
                     <!-- email -->
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control @error('email') is-invalid
-                        @enderror" name="email" id="email" placeholder="" value="{{ old('email') }}">
+                        @enderror" name="email" id="email" placeholder="" value="{{ old('email') }}" required>
                         <label for="email" class="form-label"> Email Address </label>
                         @error('email')
                             <div class="invalid-feedback">{{ $message  }}</div>
@@ -40,7 +40,7 @@
                     <!-- password -->
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control @error('password') is-invalid
-                        @enderror" name="password" id="password" placeholder="">
+                        @enderror" name="password" id="password" placeholder="" required>
                         <label for="password" class="form-label"> Password </label>
 
                         <button class="btn btn-outline-secondary" type="button" id="togglePassword">

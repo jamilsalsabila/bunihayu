@@ -24,7 +24,7 @@
                     <!-- NAMA PRODUK -->
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama"
-                            placeholder="" value="{{ old('nama') }}">
+                            placeholder="" value="{{ old('nama') }}" required>
                         <label for="nama" class="form-label"> Nama Produk </label>
                         @error('nama')
                             <div class="invalid-feedback">{{ $message  }}</div>
@@ -33,7 +33,7 @@
                     <!-- HARGA -->
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control @error('harga') is-invalid
-                        @enderror" name="harga" id="harga" placeholder="" value="{{ old('harga') }}">
+                        @enderror" name="harga" id="harga" placeholder="" value="{{ old('harga') }}" required>
                         <label for="harga" class="form-label"> Harga </label>
                         @error('harga')
                             <div class="invalid-feedback">{{ $message  }}</div>
@@ -42,7 +42,8 @@
                     <!-- KAPASITAS -->
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control @error('kapasitas') is-invalid
-                        @enderror" name="kapasitas" id="kapasitas" placeholder="" value="{{ old('kapasitas') }}">
+                        @enderror" name="kapasitas" id="kapasitas" placeholder="" value="{{ old('kapasitas') }}"
+                            required>
                         <label for="kapasitas" class="form-label"> Kapasitas </label>
                         @error('kapasitas')
                             <div class="invalid-feedback">{{ $message  }}</div>
@@ -52,7 +53,8 @@
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label"> deskripsi </label>
                         <textarea class="form-control @error('deskripsi') is-invalid
-                        @enderror" name="deskripsi" id="deskripsi" placeholder="">{{ old('deskripsi') }}</textarea>
+                        @enderror" name="deskripsi" id="deskripsi" placeholder=""
+                            required>{{ old('deskripsi') }}</textarea>
                         @error('deskripsi')
                             <div class="invalid-feedback">{{ $message  }}</div>
                         @enderror
@@ -70,7 +72,7 @@
                     <div class="mb-3">
                         <label for="foto" class="form-label"> Foto </label>
                         <input type="file" class="form-control @error('foto') is-invalid
-                        @enderror" name="foto" id="foto">
+                        @enderror" name="foto" id="foto" accept="image/*" required>
                         @error('foto')
                             <div class="invalid-feedback">{{ $message  }}</div>
                         @enderror

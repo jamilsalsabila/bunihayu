@@ -153,7 +153,15 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $product->nama }}</h5>
+                                    <h5 class="card-title">
+
+                                        <a href="{{ url('product/show') }}/{{ $product->id }}">
+
+                                            {{ $product->nama }}
+
+                                        </a>
+
+                                    </h5>
                                     <p class="card-text">{{ $product->deskripsi }}</p>
 
                                 </div>

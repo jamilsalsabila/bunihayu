@@ -84,7 +84,7 @@
             <h1 class="h3 mb-3 fw-normal">Sign In</h1>
             <div class="form-floating">
                 <input type="email" id="email" name="email" class="form-control @error('email') is-invalid
-                @enderror" placeholder="name@example.com">
+                @enderror" placeholder="name@example.com" required>
                 <label class="form-label" for="email">email address</label>
                 @error('email')
                     <div class="invalid-feedback">
@@ -94,7 +94,7 @@
             </div>
             <div class="form-floating">
                 <input type="password" name="password" id="password" placeholder="password" class="form-control @error('password') is-invalid
-                @enderror">
+                @enderror" required>
                 <label class="form-label" for="password">password</label>
                 <button class="btn btn-outline-secondary" type="button" id="togglePassword">
                     <i class="bi bi-eye-slash"></i> <!-- Initial icon for hidden password -->

@@ -12,7 +12,7 @@ class Landing extends Controller
 {
     public function index()
     {
-        $produk = Produk::latest()->select("foto", "nama", "deskripsi", "kapasitas", "harga")->get();
+        $produk = Produk::latest()->select("foto", "nama", "deskripsi", "kapasitas", "harga", "id")->get();
         foreach ($produk as $item) {
             //$item["fasilitas"] = explode(",", $item["fasilitas"]);
             $item["foto"] = explode(",", $item["foto"] ?? "No_Image_Available.jpg");
