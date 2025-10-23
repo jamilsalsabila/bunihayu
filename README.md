@@ -29,38 +29,27 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-5. Configure database in `.env` file
-```
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=bunihayu
-DB_USERNAME=root
-DB_PASSWORD=
-
-```
-
-6. Config file for mapbox 
+5. Config file for mapbox 
 ```bash
 php artisan vendor:publish --tag="mapbox-config"
 ```
 
-7. Run migrations
+6. Run migrations
 ```bash
 php artisan migrate:fresh --seed
 ```
 
-8. Storage link
+7. Storage link
 ```bash
 php artisan storage:link
 ```
 
-9. Start the development server
+8. Start the development server
 ```bash
 php artisan serve
 ```
 
-10. Akun admin
+9. Akun admin
 ```
 username: admin@bunihayu.com
 password: Dede1234.
