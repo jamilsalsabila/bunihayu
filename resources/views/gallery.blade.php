@@ -55,8 +55,7 @@
         <!-- Form tambah gallery -->
         <div class="row">
             <div class="col-sm-3">
-                <form action="{{ url('gallery') }}" method="post" id="applications" data-parsley-validate
-                    enctype="multipart/form-data">
+                <form action="#" method="post" id="applications" data-parsley-validate enctype="multipart/form-data">
                     @method('post')
                     @csrf
                     <div class="mb-3">
