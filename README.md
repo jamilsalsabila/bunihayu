@@ -49,4 +49,9 @@ php artisan migrate
 php artisan serve
 ```
 
+8. Storage link
+```bash
+php artisan storage:link
+```
+
 The application will be available at `http://localhost:8000`
