@@ -38,7 +38,6 @@ DB_DATABASE=bunihayu
 DB_USERNAME=root
 DB_PASSWORD=
 
-MAPBOX_TOKEN=pk.eyJ1Ijoic2phbWlsIiwiYSI6ImNtZ3lybm5seDAyNDAya3BzdnBpZHY3dXMifQ.5Hi_zT9Uavbameol5u5Qpw
 ```
 
 6. Config file for mapbox 
