@@ -19,37 +19,32 @@ cd bunihayu
 composer install
 ```
 
-3. Create environment file
-```bash
-cp .env.example .env
-```
-
-4. Generate application key
+3. Generate application key
 ```bash
 php artisan key:generate
 ```
 
-5. Config file for mapbox 
+4. Config file for mapbox 
 ```bash
 php artisan vendor:publish --tag="mapbox-config"
 ```
 
-6. Run migrations
+5. Run migrations
 ```bash
 php artisan migrate:fresh --seed
 ```
 
-7. Storage link
+6. Storage link
 ```bash
 php artisan storage:link
 ```
 
-8. Start the development server
+7. Start the development server
 ```bash
 php artisan serve
 ```
 
-9. Akun admin
+8. Akun admin
 ```
 username: admin@bunihayu.com
 password: Dede1234.
