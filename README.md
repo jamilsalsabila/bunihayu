@@ -1,7 +1,10 @@
 # Bunihayu Laravel Project
 
-## DEMO
+## Demo
 [![Watch the Demo](https://img.youtube.com/vi/BvvMfsrS6Wk/0.jpg)](https://www.youtube.com/watch?v=BvvMfsrS6Wk)
+
+## Presentasi
+[Google Slide](https://docs.google.com/presentation/d/1TNKoWBSVvXxRHMivyM9XQAhsTIqpv31oKb6qZrLh3qU/edit?usp=sharing)
 
 ## Prerequisites
 - PHP >= 8.0
