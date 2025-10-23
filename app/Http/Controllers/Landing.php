@@ -12,17 +12,19 @@ class Landing extends Controller
 {
     public function index()
     {
-        $produk = Produk::latest()->select("foto", "nama", "deskripsi", "kapasitas", "harga", "id")->get();
+        $produk = Produk::latest()->select("nama", "deskripsi", "kapasitas", "harga", "id")->get();
         foreach ($produk as $item) {
-            //$item["fasilitas"] = explode(",", $item["fasilitas"]);
-            $item["foto"] = explode(",", $item["foto"] ?? "No_Image_Available.jpg");
+
+            $item["foto"] = $item->gallery ?? "../No_Image_Available.jpg";
         }
+
+        // dd($produk);
 
         $fasilitas = array_chunk(FasilitasModel::all()->toArray(), 2);
 
         // dd($fasilitas);
 
-        $gallery = GalleryModel::all()->toArray();
+        $gallery = GalleryModel::latest()->take(7)->get();
 
         $comments = Comments::latest()->take(5)->get();
         //dd($comments);

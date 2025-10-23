@@ -12,12 +12,12 @@ return new class extends Migration {
     {
         Schema::create('tbl_produk', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama')->unique();
             $table->longText('deskripsi');
             $table->unsignedInteger('harga');
             $table->unsignedTinyInteger('kapasitas');
             $table->string('fasilitas');
-            $table->string('foto')->nullable();
+            //$table->string('foto', 1024)->nullable();
             $table->enum('tersedia', [0, 1])->default('1');
             $table->timestamps();
         });

@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         //    'email' => 'test@example.com',
         //]);
 
-        Produk::factory(10)->create();
+        Produk::factory(5)->create();
 
         User::create([
             "name" => "admin",
@@ -38,6 +38,6 @@ class DatabaseSeeder extends Seeder
             'isadmin' => false,
         ]);
 
-        Comments::factory(10)->create();
+        //Comments::factory(10)->create();
     }
 }

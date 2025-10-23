@@ -21,6 +21,7 @@
                         @enderror" name="nama" id="nama" placeholder="" value="{{ old('nama', $data->nama) }}"
                             required>
                         <input type="hidden" name="id" value="{{ $data->id }}">
+                        <input type="hidden" name="namalama" value="{{ $data->nama }}">
                         <label for="nama" class="form-label"> Nama Produk </label>
                         @error('nama')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -77,19 +78,41 @@
                     </div>
 
                     <!-- FOTO -->
-                    <div class="mb-3">
-                        <label for="foto" class="form-label"> Foto </label>
-                        <input type="file" class="form-control @error('foto') is-invalid
-                        @enderror" name="foto" id="foto" accept="image/*" required>
-                        @error('foto')
-                            <div class="invalid-feedback"> {{ $message }}</div>
-                        @enderror
-                        @if ($data->foto)
-                            <img src="{{ asset("storage/images/$data->foto") }}" alt="" height="200">
-                        @else
+                    @if ($data->foto)
+                        @php
+                            $n = 1;
+                        @endphp
+                        @foreach ($data->foto as $foto)
+                            <div class="mb-3">
+                                <label for="foto{{ $n }}" class="form-label"> Foto {{ $n }}</label>
+                                <input type="file" class="form-control @error("foto{{ $n }}") is-invalid
+                                @enderror" name="foto{{ $n }}" id="foto{{ $n }}" accept="image/*">
+                                @error('foto')
+                                    <div class="invalid-feedback"> {{ $message }}</div>
+                                @enderror
+                                <img src="{{ asset("storage/images") }}/{{ $data->nama }}/{{ $foto->nama }}" height="200">
+                                <input type="hidden" name="fotoid{{ $n }}" value="{{ $foto->id }}">
+                                <input type="hidden" name="fotonama{{ $n++ }}" value="{{ $foto->nama }}">
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="mb-3">
+                            <label for="foto" class="form-label"> Foto </label>
+                            <input type="file" class="form-control @error("foto") is-invalid
+                            @enderror" name="foto" id="foto" accept="image/*">
+                            @error('foto')
+                                <div class="invalid-feedback"> {{ $message }}</div>
+                            @enderror
                             <img src="{{ asset("storage/images/No_Image_Available.jpg") }}" alt="" height="200">
-                        @endif
-                    </div>
+                        </div>
+                    @endif
+
+
+
+                    <!-- jumlah foto -->
+                    <input type="hidden" name="nfoto" id="nfoto" value="{{ count($data->foto) }}">
+
+
                     <!-- SUBMIT -->
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary">Save</button>

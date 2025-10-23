@@ -12,9 +12,13 @@ return new class extends Migration {
     {
         Schema::create('gallery', function (Blueprint $table) {
             $table->id();
-            $table->string('nama')->unique();
+            $table->string('nama');
+            $table->string('idproduk');
             $table->string('foto');
             $table->timestamps();
+
+            $table->foreign('idproduk')->references('nama')->on('tbl_produk')->onDelete('cascade')->onUpdate('cascade');
+
         });
     }
 
@@ -23,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('gallery_models');
+        Schema::dropIfExists('gallery');
     }
 };

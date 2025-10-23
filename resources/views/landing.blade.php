@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 
 <head>
     <meta charset="UTF-8">
@@ -134,9 +134,10 @@
                                         @foreach ($product->foto as $foto)
                                             <div class="carousel-item {{ $n == 1 ? 'active' : '' }}">
                                                 <img class="d-block w-100 img-thumbnail"
-                                                    src="{{ asset('storage/images') }}/{{ $foto }}" alt="First slide">
+                                                    src="{{ asset('storage/images') }}/{{ $product->nama }}/{{ $foto->nama }}"
+                                                    alt="First slide">
                                             </div>
-                                            $n++;
+                                            {{ $n++ }}
                                         @endforeach
                                     </div>
 
@@ -235,8 +236,8 @@
                         @foreach ($gallery as $data)
 
                             <div class="carousel-item active">
-                                <img src="{{ asset('storage/images/gallery') }}/{{ $data['foto'] }}" class="d-block w-100"
-                                    style="height: auto; width: fit-content;">
+                                <img src="{{ asset('storage/images') }}/{{ $data->idproduk }}/{{ $data->nama }}"
+                                    class="d-block w-100" style="height: auto; width: fit-content;">
                             </div>
 
                         @endforeach

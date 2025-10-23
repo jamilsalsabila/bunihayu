@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->enum('rating', ['1', '2', '3', '4', '5']);
             $table->text('konten');
-            $table->foreignId('id_produk')->constrained('tbl_produk')->onDelete('cascade');
-            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
+            $table->foreignId('id_produk')->constrained('tbl_produk')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_user')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

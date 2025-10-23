@@ -31,7 +31,7 @@
                         <div class="card h-100">  <!-- h-100 -->
                             <div class="embed-responsive embed-responsive-16by9" style="padding: 17px">
                             @if ($item->foto)
-                                <img src="{{ asset('/storage/images') }}/{{ $item->foto }}" class="card-img-top embed-responsive-item" style=".card-img-top {object-fit: cover;}">
+                                <img src="{{ asset("/storage/images") }}/{{ $item->nama }}/{{ $item->foto }}" class="card-img-top embed-responsive-item" style=".card-img-top {object-fit: cover;}">
                             @else
                                 <img src="{{ asset('/storage/images') }}/No_Image_Available.jpg" class="card-img-top embed-responsive-item" style=".card-img-top {object-fit: cover;}">
                             @endif
@@ -61,7 +61,7 @@
                             @can('onlyadmin')
                                 <div class="row" style="margin: 3px; padding: 3px">
                                     <div class="col">
-                                        <a href="{{ url("product/edit/$item->id") }}"><button class="btn btn-primary btn-sm"> Edit
+                                        <a href="{{ url("product/edit") }}/{{ $item->id }}"><button class="btn btn-primary btn-sm"> Edit
                                             </button></a>
                                     </div>
                                     <div class="col">

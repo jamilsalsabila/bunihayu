@@ -76,7 +76,7 @@ class Gallery extends Controller
 
     public function edit($id)
     {
-        $gallery = GalleryModel::find($id);
+        $gallery = GalleryModel::findOrFail($id);
         $param = [
             "modulename" => 'Gallery',
             "title" => 'Gallery - Edit',
@@ -87,7 +87,7 @@ class Gallery extends Controller
 
     public function delete(Request $request)
     {
-        $result = GalleryModel::find($request->input('id'));
+        $result = GalleryModel::findOrFail($request->input('id'));
         GalleryModel::destroy($request->input('id'));
         Storage::disk('public')->delete("images/gallery/$result->foto");
         return back()->with('success', 'gallery berhasil dihapus');

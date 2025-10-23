@@ -76,7 +76,7 @@ class Fasilitas extends Controller
 
     public function edit($id)
     {
-        $fasilitas = FasilitasModel::find($id);
+        $fasilitas = FasilitasModel::findOrFail($id);
         $param = [
             "modulename" => 'Fasilitas',
             "title" => 'Fasilitas - Edit',
@@ -87,7 +87,7 @@ class Fasilitas extends Controller
 
     public function delete(Request $request)
     {
-        $result = FasilitasModel::find($request->input('id'));
+        $result = FasilitasModel::findOrFail($request->input('id'));
         FasilitasModel::destroy($request->input('id'));
         Storage::disk('public')->delete("images/fasilitas/$result->foto");
         return back()->with('success', 'fasilitas berhasil dihapus');

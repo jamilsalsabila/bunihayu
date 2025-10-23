@@ -24,7 +24,34 @@
         <div class="row d-flex align-items-start">
             <div class="col-lg-5">
                 @if ($data->foto)
-                    <img src="{{ asset("storage/images/$data->foto") }}" alt="" height="200">
+                    @php
+                        $n = 1;
+                    @endphp
+
+
+                    <!-- product image carousel -->
+                    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach ($data->foto as $foto)
+                                <div class="carousel-item {{ $n++ == 1 ? 'active' : '' }}">
+                                    <img src="{{ asset("storage/images") }}/{{ $data->nama }}/{{ $foto->nama }}"
+                                        class="d-block w-100">
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+
                 @else
                     <img src="{{ asset("storage/images/No_Image_Available.jpg") }}" alt="" height="200">
                 @endif

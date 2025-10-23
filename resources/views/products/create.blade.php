@@ -7,6 +7,11 @@
 @endsection
 
 @section('content')
+    @if (session()->has('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <div class="parent container" style="margin-top: 90px; ">
         <div class="row-sm-3"></div>
         <div class="row">
@@ -72,7 +77,7 @@
                     <div class="mb-3">
                         <label for="foto" class="form-label"> Foto </label>
                         <input type="file" class="form-control @error('foto') is-invalid
-                        @enderror" name="foto" id="foto" accept="image/*" required>
+                        @enderror" name="foto[]" id="foto" accept="image/*" required multiple>
                         @error('foto')
                             <div class="invalid-feedback">{{ $message  }}</div>
                         @enderror
