@@ -49,6 +49,9 @@
         @endif
 
 
+        <div class="alert alert-warning">
+            <h3>Sedang dalam pengembangan</h3>
+        </div>
         <!-- Form tambah gallery -->
         <div class="row">
             <div class="col-sm-3">
@@ -59,7 +62,7 @@
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
                         <input type="text" class="form-control @error('nama') is-invalid
-                        @enderror" name="nama" id="nama" value="{{ old('nama') }}" required>
+                        @enderror" name="nama" id="nama" value="{{ old('nama') }}" required disabled>
                         @error('nama')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -67,12 +70,12 @@
                     <div class="mb-3">
                         <label for="foto" class="form-label">Foto</label>
                         <input type="file" class="form-control @error('foto') is-invalid
-                        @enderror" name="foto" id="foto" accept="image/*" required>
+                        @enderror" name="foto" id="foto" accept="image/*" required disabled>
                         @error('foto')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary btn-sm">tambah</button>
+                    <button type="submit" class="btn btn-primary btn-sm" disabled>tambah</button>
                 </form>
             </div>
         </div>
