@@ -51,3 +51,20 @@ password: Dede1234.
 ```
 
 The application will be available at `http://localhost:8000`
+
+If a Laravel application is stuck loading the home page, do this:
+
+1. Clear application cache
+```bash
+php artisan cache:clear
+```
+
+2. Clear configuration cache
+```bash
+php artisan config:clear
+```
+
+2. Clear view cache
+```bash
+php artisan view:clear
+```
