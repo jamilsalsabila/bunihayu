@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\GalleryModel;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Produk;
 use App\Models\Comments;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +24,19 @@ class DatabaseSeeder extends Seeder
         //    'email' => 'test@example.com',
         //]);
 
-        Produk::factory(5)->create();
+        $produk1 = 'Glamping 100000';
+
+        Produk::create([
+            'nama' => $produk1,
+            'deskripsi' => 'glamping adalah ',
+            'fasilitas' => 'a,b,c',
+            'harga' => 500000,
+            'kapasitas' => 2,
+
+        ]);
+
+        Storage::disk('public')->makeDirectory("images/$produk1");
+        Storage::disk('public')->copy('images/No_Image_Available.jpg', "images/$produk1/No_Image_Available.jpg");
 
         User::create([
             "name" => "admin",
@@ -39,5 +53,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //Comments::factory(10)->create();
+
+        GalleryModel::create([
+            'nama' => 'No_Image_Available.jpg',
+            'idproduk' => $produk1,
+            'foto' => 'No_Image_Available.jpg',
+        ]);
+
     }
 }

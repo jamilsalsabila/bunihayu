@@ -48,7 +48,7 @@ php artisan vendor:publish --tag="mapbox-config"
 
 7. Run migrations
 ```bash
-php artisan migrate
+php artisan migrate:fresh --seed
 ```
 
 8. Storage link
@@ -62,7 +62,7 @@ php artisan serve
 ```
 
 10. Akun admin
-```bash
+```
 username: admin@bunihayu.com
 password: Dede1234.
 ```

@@ -27,7 +27,7 @@
                     <tr>
                         <th scope="row">{{ $line++ }}</th>
                         <td> {{ $item->nama }}</td>
-                        <td> <img src="{{ asset('storage/images/gallery') }}/{{ $item->foto }}"
+                        <td> <img src="{{ asset('storage/images') }}/{{ $item->idproduk }}/{{ $item->foto }}"
                                 style="height: auto; width: 10%;"></td>
                         <td>
                             <a href="{{ url('gallery/edit') }}/{{ $item->id }}" style="color: blue">edit</a>
