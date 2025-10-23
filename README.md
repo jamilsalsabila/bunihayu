@@ -1,5 +1,7 @@
 # Bunihayu Laravel Project
 
+[![Watch the Demo](https://img.youtube.com/vi/BvvMfsrS6Wk/0.jpg)](https://www.youtube.com/watch?v=BvvMfsrS6Wk)
+
 ## Prerequisites
 - PHP >= 8.0
 - Composer
