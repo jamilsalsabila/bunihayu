@@ -19,6 +19,9 @@
                 </tr>
             </thead>
             <tbody>
+                <div class="alert alert-warning">
+                    <h3>Sedang dalam pengembangan</h3>
+                </div>
                 @php
                     $line = 1;
                 @endphp
@@ -30,9 +33,7 @@
                         <td> <img src="{{ asset('storage/images') }}/{{ $item->idproduk }}/{{ $item->foto }}"
                                 style="height: auto; width: 10%;"></td>
                         <td>
-                            <div class="alert alert-warning">
-                                <h3>Sedang dalam pengembangan</h3>
-                            </div>
+
                             <!-- href="{{ url('gallery/edit') }}/{{ $item->id }}" -->
                             <a href="#" style="color: blue">edit</a>
                             <br /><br />
