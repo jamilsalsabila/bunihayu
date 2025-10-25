@@ -30,9 +30,14 @@
                         <td> <img src="{{ asset('storage/images') }}/{{ $item->idproduk }}/{{ $item->foto }}"
                                 style="height: auto; width: 10%;"></td>
                         <td>
-                            <a href="{{ url('gallery/edit') }}/{{ $item->id }}" style="color: blue">edit</a>
+                            <div class="alert alert-warning">
+                                <h3>Sedang dalam pengembangan</h3>
+                            </div>
+                            <!-- href="{{ url('gallery/edit') }}/{{ $item->id }}" -->
+                            <a href="#" style="color: blue">edit</a>
                             <br /><br />
-                            <form action="{{ url('gallery') }}" method="post" id="applications" data-parsley-validate
+                            <!-- action="{{ url('gallery') }}" -->
+                            <form action="#" method="post" id="applications" data-parsley-validate
                                 onsubmit="if(!confirm('apakah anda ingin menghapus gallery ini?')){return false;}">
                                 @method('delete')
                                 @csrf
