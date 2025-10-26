@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Product;
-use App\Http\Controllers\Userlogin;
+use App\Http\Controllers\UserLogin;
 use App\Http\Controllers\Fasilitas;
 use App\Http\Controllers\Gallery;
 use Illuminate\Support\Facades\Route;
