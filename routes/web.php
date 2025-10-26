@@ -36,9 +36,9 @@ Route::delete('product', [ProductController::class, 'delete'])->middleware('only
 /*
 RUTE LOGIN, LOGOUT
 */
-Route::get('login', [Userlogin::class, 'index'])->name('login')->middleware('guest');
-Route::post('login', [Userlogin::class, 'signin'])->middleware('guest');
-Route::get('logout', [Userlogin::class, 'signout'])->middleware('auth');
+Route::get('login', [UserLogin::class, 'index'])->name('login')->middleware('guest');
+Route::post('login', [UserLogin::class, 'signin'])->middleware('guest');
+Route::get('logout', [UserLogin::class, 'signout'])->middleware('auth');
 
 /*
 RUTE REGISTER
