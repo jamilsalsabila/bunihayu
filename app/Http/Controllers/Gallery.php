@@ -29,7 +29,7 @@ class Gallery extends Controller
 
         $foto = $request->file("foto");
         $namaFile = $foto->getClientOriginalName();
-        $foto->storeAs("images/gallery", $namaFile, 'public');
+        $foto->storeAs("images/gallery", $namaFile, 's3');
 
         $data = [
             'nama' => $request->input('nama'),
@@ -61,9 +61,9 @@ class Gallery extends Controller
             $foto = $request->file('foto');
             $namaFile = $foto->getClientOriginalName();
 
-            Storage::disk('public')->delete("images/gallery/$request->fotolama");
+            Storage::disk('s3')->delete("images/gallery/$request->fotolama");
 
-            $foto->storeAs('images/gallery', $namaFile, 'public');
+            $foto->storeAs('images/gallery', $namaFile, 's3');
             $data['foto'] = $namaFile;
         }
 
@@ -89,7 +89,7 @@ class Gallery extends Controller
     {
         $result = GalleryModel::findOrFail($request->input('id'));
         GalleryModel::destroy($request->input('id'));
-        Storage::disk('public')->delete("images/gallery/$result->foto");
+        Storage::disk('s3')->delete("images/gallery/$result->foto");
         return back()->with('success', 'gallery berhasil dihapus');
     }
 

@@ -68,7 +68,7 @@ class ProductController extends Controller
             $now = Carbon::now();
             $datafoto[] = ["nama" => $namaFile, "idproduk" => $request->input('nama'), "foto" => $namaFile, "created_at" => $now->toDateTimeString(), "updated_at" => $now->toDateTimeString()];
 
-            $foto->storeAs("images/" . $request->input('nama'), $namaFile, 'public');
+            $foto->storeAs("images/" . $request->input('nama'), $namaFile, 's3');
 
         }
 
@@ -176,7 +176,7 @@ class ProductController extends Controller
 
         // Ganti nama folder tempat simpan gambar jika ganti nama produk
         if ($request->input('namalama') != $request->input('nama')) {
-            Storage::disk('public')->move('images/' . $request->input('namalama') . '/', 'images/' . $request->input('nama') . '/');
+            Storage::disk('s3')->move('images/' . $request->input('namalama') . '/', 'images/' . $request->input('nama') . '/');
         }
 
 
@@ -193,10 +193,10 @@ class ProductController extends Controller
                 $newNamaFile = $foto->getClientOriginalName();
 
                 // Hapus foto lama
-                Storage::disk('public')->delete("images/" . $request->input('nama') . "/" . $fotonama);
+                Storage::disk('s3')->delete("images/" . $request->input('nama') . "/" . $fotonama);
 
                 // Simpan foto baru
-                $foto->storeAs("images/" . $request->input('nama'), $newNamaFile, 'public');
+                $foto->storeAs("images/" . $request->input('nama'), $newNamaFile, 's3');
 
                 // update foto
                 GalleryModel::where('id', $fotoid)->update(['nama' => $newNamaFile, 'foto' => $newNamaFile]);
@@ -214,7 +214,7 @@ class ProductController extends Controller
     {
         $data = Produk::findOrFail($request->id);
         Produk::where('id', $data->id)->delete();
-        Storage::disk('public')->deleteDirectory("images/$data->nama");
+        Storage::disk('s3')->deleteDirectory("images/$data->nama");
         return redirect(url('product'))->with('success', 'data berhasil di hapus');
     }
 }
