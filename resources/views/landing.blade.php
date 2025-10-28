@@ -121,12 +121,16 @@
                 <div class="scrollable-div"
                     style="height: 600px; overflow-y: auto; border: 1px dotted #5555552d; padding: 5px;">
 
+                    @php
+                        $carousel = 1;
+                    @endphp
+
                     @foreach ($products as $product)
 
                         <div class="d-flex justify-content-center">
                             <div class="card" style="width: 70%; height: auto;">
-                                <div id="productCarousel" class="carousel slide" data-ride="carousel"
-                                    data-bs-target="#productCarousel">
+                                <div id="productCarousel{{ $carousel }}" class="carousel slide" data-ride="carousel"
+                                    data-bs-target="#productCarousel{{ $carousel }}">
                                     <div class="carousel-inner" style="padding: 3px;">
                                         @php
                                             $n = 1;
@@ -141,12 +145,12 @@
                                         @endforeach
                                     </div>
 
-                                    <a class="carousel-control-prev" href="#productCarousel" role="button"
+                                    <a class="carousel-control-prev" href="#productCarousel{{ $carousel }}" role="button"
                                         data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Previous</span>
                                     </a>
-                                    <a class="carousel-control-next" href="#productCarousel" role="button"
+                                    <a class="carousel-control-next" href="#productCarousel{{ $carousel++ }}" role="button"
                                         data-bs-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
