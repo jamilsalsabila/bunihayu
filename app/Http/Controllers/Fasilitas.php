@@ -29,7 +29,7 @@ class Fasilitas extends Controller
 
         $foto = $request->file("foto");
         $namaFile = $foto->getClientOriginalName();
-        $foto->storeAs("images/fasilitas", $namaFile, 's3');
+        $foto->storeAs("images/fasilitas", $namaFile, 'public');
 
         $data = [
             'nama' => $request->input('nama'),
@@ -61,9 +61,9 @@ class Fasilitas extends Controller
             $foto = $request->file('foto');
             $namaFile = $foto->getClientOriginalName();
 
-            Storage::disk('s3')->delete("images/fasilitas/$request->fotolama");
+            Storage::disk('public')->delete("images/fasilitas/$request->fotolama");
 
-            $foto->storeAs('images/fasilitas', $namaFile, 's3');
+            $foto->storeAs('images/fasilitas', $namaFile, 'public');
             $data['foto'] = $namaFile;
         }
 
@@ -89,7 +89,7 @@ class Fasilitas extends Controller
     {
         $result = FasilitasModel::findOrFail($request->input('id'));
         FasilitasModel::destroy($request->input('id'));
-        Storage::disk('s3')->delete("images/fasilitas/$result->foto");
+        Storage::disk('public')->delete("images/fasilitas/$result->foto");
         return back()->with('success', 'fasilitas berhasil dihapus');
     }
 

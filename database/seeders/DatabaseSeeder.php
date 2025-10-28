@@ -35,8 +35,8 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
-        Storage::disk('s3')->makeDirectory("images/$produk1");
-        Storage::disk('s3')->copy('images/No_Image_Available.jpg', "images/$produk1/No_Image_Available.jpg");
+        Storage::disk('public')->makeDirectory("images/$produk1");
+        Storage::disk('public')->copy('images/No_Image_Available.jpg', "images/$produk1/No_Image_Available.jpg");
 
         User::create([
             "name" => "admin",
