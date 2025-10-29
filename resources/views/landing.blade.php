@@ -37,6 +37,40 @@
             height: 450px;
             width: 100%;
         }
+
+        .ongoing-event {
+
+            /* Apply the animation */
+            animation-name: pulse;
+            /* Name of your keyframe animation */
+            animation-duration: 2s;
+            /* Duration of one animation cycle */
+            animation-iteration-count: infinite;
+            /* Make it loop continuously */
+            animation-timing-function: ease-in-out;
+            /* Smooth transition */
+        }
+
+        /* Define the keyframe animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                /* Original size */
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.2);
+                /* Slightly larger */
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: scale(1);
+                /* Back to original size */
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 
@@ -64,7 +98,40 @@
             <div class="col-sm-3"></div>
         </div>
 
-
+        <!-- acara section -->
+        @if ($acara->isNotEmpty())
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="ongoing-event">Upcoming Event(s)</h2>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 30px;">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <div id="acara" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @php
+                                $n = 1;
+                            @endphp
+                            @foreach ($acara as $item)
+                                <div class="carousel-item {{ $n++ == 1 ? 'active' : '' }}">
+                                    <img src="{{ asset('storage/images/acara') }}/{{ $item->foto }}" class="d-block w-100">
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#acara" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#acara" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        @endif
 
         <!-- Hero section -->
         <div class="row justify-content-center text-center">

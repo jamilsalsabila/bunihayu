@@ -4,6 +4,7 @@ use App\Http\Controllers\Product;
 use App\Http\Controllers\UserLogin;
 use App\Http\Controllers\Fasilitas;
 use App\Http\Controllers\Gallery;
+use App\Http\Controllers\Acara;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Landing;
@@ -76,6 +77,15 @@ Route::post('fasilitas', [Fasilitas::class, 'save'])->middleware('onlyadmin');
 Route::get('fasilitas/edit/{id}', [Fasilitas::class, 'edit'])->middleware('onlyadmin');
 Route::patch('fasilitas', [Fasilitas::class, 'saveedit'])->middleware('onlyadmin');
 Route::delete('fasilitas', [Fasilitas::class, 'delete'])->middleware('onlyadmin');
+
+/*
+RUTE ACARA
+*/
+Route::get('acara', [Acara::class, 'add'])->middleware('onlyadmin');
+Route::post('acara', [Acara::class, 'save'])->middleware('onlyadmin');
+Route::get('acara/edit/{id}', [Acara::class, 'edit'])->middleware('onlyadmin');
+Route::patch('acara', [Acara::class, 'saveedit'])->middleware('onlyadmin');
+Route::delete('acara', [Acara::class, 'delete'])->middleware('onlyadmin');
 
 
 /*

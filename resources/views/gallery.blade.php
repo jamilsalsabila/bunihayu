@@ -34,10 +34,8 @@
                                 style="height: auto; width: 10%;"></td>
                         <td>
 
-                            <!-- href="{{ url('gallery/edit') }}/{{ $item->id }}" -->
                             <a href="#" style="color: blue">edit</a>
                             <br /><br />
-                            <!-- action="{{ url('gallery') }}" -->
                             <form action="#" method="post" id="applications" data-parsley-validate
                                 onsubmit="if(!confirm('apakah anda ingin menghapus gallery ini?')){return false;}">
                                 @method('delete')

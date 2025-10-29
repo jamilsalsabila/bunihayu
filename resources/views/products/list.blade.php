@@ -19,10 +19,23 @@
         @endif
         <div class="container">
             @can('onlyadmin')
-            <div style="margin-bottom: 10px; margin-top: 5px">
-                <a href="{{ url('product/create') }}" style="margin-right: 20px;"><button class="btn btn-primary btn-md">Add Product</button></a>
-                <a href="{{ url('fasilitas') }}"><button class="btn btn-primary btn-sm">Fasilitas</button></a>
-                <a href="{{ url('gallery') }}"><button class="btn btn-primary btn-sm">Gallery</button></a>
+            <div style="margin-bottom: 20px;">
+                
+            <!-- Produk -->
+                    <button class="btn btn-md" style="background-color: #640D5F; color: whitesmoke;" onclick="document.location='{{ url('product/create') }}'">Tambah produk
+                    </button>
+                
+                <!-- Fasilitas -->
+                    <button class="btn btn-md" style="background-color: #B12C00; color: whitesmoke;" onclick="document.location='{{ url('fasilitas') }}'"> Tambah fasilitas</button>
+                
+                
+            <!-- Acara -->
+                    <button role="link" class="btn btn-md" style="background-color: #EB5B00; color: whitesmoke;" onclick="document.location='{{ url('acara') }}'"> Tambah acara/event</button>
+                
+                
+                <!-- gallery -->
+                    <button class="btn btn-md" style="background-color: #FFCC00; color: black;" onclick="document.location='{{ url('gallery') }}'">Lihat g4|_|_3ry</button>
+                
             </div>
             @endcan
             <div class="row row-cols-1 row-cols-md-3 g-4">
