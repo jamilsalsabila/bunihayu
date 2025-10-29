@@ -50,14 +50,18 @@
 
         <!-- Navbar -->
         <div class="row" style="border-bottom: 1px solid #5555552d; padding-bottom: 30px; margin-bottom: 30px">
-            <nav class="navbar justify-content-center text-center">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
 
-                <a href="#">
-                    <img src="{{ asset('storage/images/bunihayu-forest-logo-black.png') }}"
-                        style="width: 30%; height: auto;">
-                </a>
+                <nav class="navbar justify-content-center text-center">
 
-            </nav>
+                    <a href="#">
+                        <img src="{{ asset('storage/images/bunihayu-forest-logo-black.png') }}" class="d-block w-100">
+                    </a>
+
+                </nav>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
 
 
@@ -91,12 +95,12 @@
         @endif
 
         <!-- Roadmap -->
-        <div class="row justify-content-center" style="margin-top: 30px; margin-bottom: 30px">
-            <div class="col-sm-10 text-center" id="peta">
-                <!-- <h1><span>Peta</span></h1> -->
-                <img src="{{ asset('storage/images/peta.png') }}" style="width: 100%; height: auto;">
-            </div>
+
+        <div class="d-flex" id="peta">
+            <img src="{{ asset('storage/images/peta.png') }}" class="img-fluid">
         </div>
+
+
         <!-- <div class="row justify-content-center">
                 <div class="col-sm-10">
                     <div class="embed-responsive embed-responsive-16by9">
@@ -117,7 +121,7 @@
         </div>
         <div class="row" style="margin-bottom: 30px; margin-top: 30px;">
             <div class="col align-self-start"></div>
-            <div class="col-lg-6 align-self-center">
+            <div class="col-lg-10 align-self-center">
                 <div class="scrollable-div"
                     style="height: 600px; overflow-y: auto; border: 1px dotted #5555552d; padding: 5px;">
 
@@ -232,16 +236,19 @@
                 <h2>Gallery</h2>
             </div>
         </div>
-        <div class="row" style="margin-top: 30px;">
-            <div class="col col-sm-3 align-self-start"></div>
-            <div class="col col-sm-6 align-self-center">
+        <div class="d-flex float-right row">
+            <div class="col-sm"></div>
+            <div class="col-sm-6">
                 <div id="gallery" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
+                        @php
+                            $i = 1;
+                        @endphp
                         @foreach ($gallery as $data)
 
-                            <div class="carousel-item active">
+                            <div class="carousel-item {{ $i++ == 1 ? 'active' : '' }}">
                                 <img src="{{ asset('storage/images') }}/{{ $data->idproduk }}/{{ $data->nama }}"
-                                    class="d-block w-100" style="height: auto; width: fit-content;">
+                                    class="d-block w-100">
                             </div>
 
                         @endforeach
@@ -256,7 +263,7 @@
                     </button>
                 </div>
             </div>
-            <div class="col col-sm-3 align-self-end"></div>
+            <div class="col-sm"></div>
         </div>
 
         <!-- Apa kata mereka -->
